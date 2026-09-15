@@ -334,29 +334,29 @@ export const ConversationalTerminal: React.FC<ConversationalTerminalProps> = ({
       </div>
 
       {/* 1. MINIMAL HEADER */}
-      <header className="z-30 w-full bg-[#030407]/90 border-b border-[#141824] py-3.5 px-5 md:px-[5vw] lg:px-[8vw] flex items-center justify-between">
+      <header className="z-30 w-full bg-[#030407]/90 border-b border-[#141824] py-2.5 px-3 sm:py-3.5 sm:px-5 md:px-[5vw] lg:px-[8vw] flex items-center justify-between gap-2">
         {/* Brand & Landing Link */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4 shrink-0">
           <button
             onClick={() => {
               playClickSound();
               handleEndLesson();
             }}
-            className="flex items-center gap-2.5 group cursor-pointer focus:outline-none"
+            className="flex items-center gap-2 group cursor-pointer focus:outline-none"
             title="Return to ENCRYPT Portal"
           >
             <span className="w-2.5 h-2.5 bg-[#ff003c] shadow-[0_0_10px_#ff003c] group-hover:scale-125 transition-transform" />
-            <span className="font-heading font-black text-lg text-white tracking-widest group-hover:text-[#ff003c] transition-colors">
+            <span className="font-heading font-black text-base sm:text-lg text-white tracking-widest group-hover:text-[#ff003c] transition-colors">
               E<span className="text-[#ff003c]">N</span>CRYPT
             </span>
           </button>
 
           {activeLesson && (
             <>
-              <span className="text-[#202838]">/</span>
-              <div className="flex items-center gap-2 text-xs">
+              <span className="text-[#202838] hidden sm:inline">/</span>
+              <div className="hidden sm:flex items-center gap-1.5 text-xs truncate max-w-[120px] sm:max-w-none">
                 <span className="text-[#ff003c] font-bold">{activeLesson.number}</span>
-                <span className="text-[#e2e8f0] font-bold uppercase tracking-wider">
+                <span className="text-[#e2e8f0] font-bold uppercase tracking-wider truncate">
                   {activeLesson.title}
                 </span>
               </div>
@@ -365,10 +365,10 @@ export const ConversationalTerminal: React.FC<ConversationalTerminalProps> = ({
         </div>
 
         {/* Curriculum drawer toggle & Anytime End Lesson button */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="px-3 py-1 bg-[#0b0e18] hover:bg-[#161c2e] border border-[#1e273a] hover:border-[#ff003c]/50 text-[#a0aab8] hover:text-white transition-all cursor-pointer text-xs font-bold uppercase tracking-wider clip-chamfer"
+            className="px-2.5 py-1 sm:px-3 bg-[#0b0e18] hover:bg-[#161c2e] border border-[#1e273a] hover:border-[#ff003c]/50 text-[#a0aab8] hover:text-white transition-all cursor-pointer text-[10px] sm:text-xs font-bold uppercase tracking-wider clip-chamfer"
           >
             CURRICULUM
           </button>
@@ -376,7 +376,7 @@ export const ConversationalTerminal: React.FC<ConversationalTerminalProps> = ({
           <button
             onClick={handleEndLesson}
             disabled={isDisconnecting}
-            className="px-3 py-1 bg-[#ff003c]/10 hover:bg-[#ff003c] border border-[#ff003c]/60 text-[#ff003c] hover:text-white transition-all cursor-pointer text-xs font-bold uppercase tracking-wider clip-chamfer active:scale-95 disabled:opacity-50"
+            className="px-2.5 py-1 sm:px-3 bg-[#ff003c]/10 hover:bg-[#ff003c] border border-[#ff003c]/60 text-[#ff003c] hover:text-white transition-all cursor-pointer text-[10px] sm:text-xs font-bold uppercase tracking-wider clip-chamfer active:scale-95 disabled:opacity-50"
             title="End lesson and disconnect session"
           >
             END LESSON
@@ -386,20 +386,20 @@ export const ConversationalTerminal: React.FC<ConversationalTerminalProps> = ({
 
       {/* HIDDEN COMMAND BAR OVERLAY (CTRL + SHIFT + K) */}
       {isCmdOpen && (
-        <div className="absolute top-14 left-0 right-0 z-50 bg-[#05070c]/98 border-b border-[#ff003c]/50 p-4 shadow-[0_10px_30px_rgba(255,0,60,0.15)] backdrop-blur-md">
-          <form onSubmit={handleCommandSubmit} className="w-full max-w-4xl mx-auto flex items-center gap-3">
-            <span className="text-[#ff003c] font-bold text-sm tracking-widest">&gt;</span>
+        <div className="absolute top-12 sm:top-14 left-0 right-0 z-50 bg-[#05070c]/98 border-b border-[#ff003c]/50 p-3 sm:p-4 shadow-[0_10px_30px_rgba(255,0,60,0.15)] backdrop-blur-md">
+          <form onSubmit={handleCommandSubmit} className="w-full max-w-4xl mx-auto flex items-center gap-2 sm:gap-3">
+            <span className="text-[#ff003c] font-bold text-xs sm:text-sm tracking-widest">&gt;</span>
             <input
               ref={cmdInputRef}
               type="text"
               value={cmdQuery}
               onChange={(e) => setCmdQuery(e.target.value)}
               placeholder="type lesson (e.g. hashing, symmetric, hmac, tls)..."
-              className="flex-1 bg-transparent text-white font-mono text-sm focus:outline-none placeholder-[#3f4a5c]"
+              className="flex-1 bg-transparent text-white font-mono text-xs sm:text-sm focus:outline-none placeholder-[#3f4a5c]"
             />
             <button
               type="submit"
-              className="px-3.5 py-1 bg-[#ff003c] text-white text-xs font-bold uppercase tracking-wider clip-chamfer hover:bg-[#d60032] cursor-pointer"
+              className="px-3 py-1 bg-[#ff003c] text-white text-[10px] sm:text-xs font-bold uppercase tracking-wider clip-chamfer hover:bg-[#d60032] cursor-pointer"
             >
               EXECUTE
             </button>
@@ -409,20 +409,20 @@ export const ConversationalTerminal: React.FC<ConversationalTerminalProps> = ({
 
       {/* CURRICULUM OVERLAY DRAWER */}
       {isMenuOpen && (
-        <div className="absolute top-14 right-4 z-50 w-80 bg-[#05070c] border border-[#ff003c]/40 p-4 shadow-[0_10px_40px_rgba(0,0,0,0.95)] clip-chamfer flex flex-col gap-3 font-mono">
+        <div className="absolute top-12 sm:top-14 right-2 sm:right-4 left-2 sm:left-auto z-50 w-[calc(100vw-1rem)] sm:w-80 bg-[#05070c] border border-[#ff003c]/40 p-3 sm:p-4 shadow-[0_10px_40px_rgba(0,0,0,0.95)] clip-chamfer flex flex-col gap-3 font-mono">
           <div className="flex items-center justify-between pb-2 border-b border-[#141824]">
             <span className="text-[10px] text-[#ff003c] font-bold tracking-widest uppercase">
               // CURRICULUM ARCHIVE
             </span>
             <button
               onClick={() => setIsMenuOpen(false)}
-              className="text-xs text-[#717d94] hover:text-white cursor-pointer"
+              className="text-xs text-[#717d94] hover:text-white cursor-pointer p-1"
             >
               ✕
             </button>
           </div>
 
-          <div className="flex flex-col gap-1.5 max-h-96 overflow-y-auto no-scrollbar">
+          <div className="flex flex-col gap-1.5 max-h-[60vh] sm:max-h-96 overflow-y-auto no-scrollbar">
             {Object.values(CONVERSATIONAL_LESSONS).map((l) => (
               <button
                 key={l.id}
@@ -430,7 +430,7 @@ export const ConversationalTerminal: React.FC<ConversationalTerminalProps> = ({
                   setIsMenuOpen(false);
                   handleStartLesson(l.id);
                 }}
-                className={`w-full text-left p-2.5 text-xs clip-chamfer flex items-center justify-between border transition-all cursor-pointer ${
+                className={`w-full text-left p-2.5 text-xs clip-chamfer flex items-center justify-between border transition-all cursor-pointer min-h-[40px] ${
                   l.id === currentLessonId
                     ? 'bg-[#ff003c]/20 border-[#ff003c] text-white font-bold'
                     : 'bg-[#080b12] border-[#141824] text-[#a0aab8] hover:text-white hover:border-[#ff003c]/40'
@@ -445,20 +445,20 @@ export const ConversationalTerminal: React.FC<ConversationalTerminalProps> = ({
       )}
 
       {/* 2. FULL-WIDTH TERMINAL CONVERSATION STREAM */}
-      <main className="flex-1 w-full px-5 md:px-[5vw] lg:px-[10vw] py-8 overflow-y-auto flex flex-col gap-8 no-scrollbar">
+      <main className="flex-1 w-full px-3 sm:px-5 md:px-[5vw] lg:px-[10vw] py-4 sm:py-8 overflow-y-auto flex flex-col gap-6 sm:gap-8 no-scrollbar">
         {/* Render Finalized Messages */}
         {messages.map((msg) => (
           <div
             key={msg.id}
-            className={`flex flex-col gap-2 ${
+            className={`flex flex-col gap-1.5 sm:gap-2 ${
               msg.sender === 'user'
-                ? 'self-end items-end max-w-[85%] md:max-w-[70%]'
-                : 'self-start items-start max-w-[90%] md:max-w-[75%]'
+                ? 'self-end items-end max-w-[92%] sm:max-w-[85%] md:max-w-[70%]'
+                : 'self-start items-start max-w-[96%] sm:max-w-[90%] md:max-w-[75%]'
             }`}
           >
             {/* Sender Label */}
             <span
-              className={`text-[10px] font-bold tracking-widest uppercase font-mono ${
+              className={`text-[9px] sm:text-[10px] font-bold tracking-widest uppercase font-mono ${
                 msg.sender === 'user' ? 'text-[#00e699]' : 'text-[#ff003c]'
               }`}
             >
@@ -467,23 +467,23 @@ export const ConversationalTerminal: React.FC<ConversationalTerminalProps> = ({
 
             {/* Content Body */}
             <div
-              className={`text-sm sm:text-base leading-relaxed font-mono whitespace-pre-wrap ${
+              className={`text-xs sm:text-sm md:text-base leading-relaxed font-mono whitespace-pre-wrap ${
                 msg.sender === 'user'
-                  ? 'bg-[#0d121f] border border-[#00e699]/30 text-[#00e699] px-4 py-2.5 clip-chamfer font-bold'
-                  : 'text-[#d8e0ec] pl-3 border-l-2 border-[#ff003c]/50'
+                  ? 'bg-[#0d121f] border border-[#00e699]/30 text-[#00e699] px-3.5 py-2 sm:px-4 sm:py-2.5 clip-chamfer font-bold'
+                  : 'text-[#d8e0ec] pl-2.5 sm:pl-3 border-l-2 border-[#ff003c]/50'
               }`}
             >
               {msg.content}
 
               {/* Optional Attached Code Snippet */}
               {msg.codeSnippet && (
-                <div className="mt-3 p-3.5 bg-[#030407] border border-[#181d2c] text-xs font-mono clip-chamfer text-[#00e699]">
+                <div className="mt-3 p-2.5 sm:p-3.5 bg-[#030407] border border-[#181d2c] text-xs font-mono clip-chamfer text-[#00e699] max-w-full overflow-hidden">
                   {msg.codeSnippet.caption && (
-                    <span className="text-[10px] text-[#637088] block mb-1 uppercase font-bold">
+                    <span className="text-[9px] sm:text-[10px] text-[#637088] block mb-1 uppercase font-bold">
                       // {msg.codeSnippet.caption}
                     </span>
                   )}
-                  <pre className="overflow-x-auto text-[11px] text-[#a0aab8] leading-normal whitespace-pre">
+                  <pre className="overflow-x-auto text-[10px] sm:text-[11px] text-[#a0aab8] leading-normal whitespace-pre p-1">
                     {msg.codeSnippet.code}
                   </pre>
                 </div>
@@ -491,26 +491,26 @@ export const ConversationalTerminal: React.FC<ConversationalTerminalProps> = ({
 
               {/* Optional Attached Example Box */}
               {msg.exampleBox && (
-                <div className="mt-3 p-4 bg-[#05060b] border border-[#ff003c]/30 clip-chamfer flex flex-col gap-2 text-xs font-mono">
-                  <div className="text-[10px] text-[#ff003c] font-bold uppercase tracking-widest pb-1 border-b border-[#141824]">
+                <div className="mt-3 p-3 sm:p-4 bg-[#05060b] border border-[#ff003c]/30 clip-chamfer flex flex-col gap-2 text-xs font-mono max-w-full">
+                  <div className="text-[9px] sm:text-[10px] text-[#ff003c] font-bold uppercase tracking-widest pb-1 border-b border-[#141824]">
                     EXAMPLE {msg.exampleBox.exampleNumber} OF 5: {msg.exampleBox.title}
                   </div>
 
                   {msg.exampleBox.input && (
-                    <div className="text-[11px]">
+                    <div className="text-[10px] sm:text-[11px] break-all">
                       <span className="text-[#637088]">INPUT: </span>
                       <span className="text-white">{msg.exampleBox.input}</span>
                     </div>
                   )}
 
                   {msg.exampleBox.output && (
-                    <div className="text-[11px] break-all">
+                    <div className="text-[10px] sm:text-[11px] break-all">
                       <span className="text-[#637088]">OUTPUT / RESULT: </span>
                       <span className="text-[#00e699]">{msg.exampleBox.output}</span>
                     </div>
                   )}
 
-                  <p className="text-[11px] text-[#909cb0] italic pt-1">
+                  <p className="text-[10px] sm:text-[11px] text-[#909cb0] italic pt-1">
                     {msg.exampleBox.explanation}
                   </p>
                 </div>
@@ -521,11 +521,11 @@ export const ConversationalTerminal: React.FC<ConversationalTerminalProps> = ({
 
         {/* Dynamic Typing Buffer */}
         {isTyping && (
-          <div className="self-start items-start max-w-[90%] md:max-w-[75%] flex flex-col gap-2">
-            <span className="text-[10px] text-[#ff003c] font-bold tracking-widest uppercase font-mono">
+          <div className="self-start items-start max-w-[96%] sm:max-w-[90%] md:max-w-[75%] flex flex-col gap-1.5 sm:gap-2">
+            <span className="text-[9px] sm:text-[10px] text-[#ff003c] font-bold tracking-widest uppercase font-mono">
               MENTOR // ENCRYPT
             </span>
-            <div className="text-sm sm:text-base leading-relaxed text-[#d8e0ec] font-mono whitespace-pre-wrap pl-3 border-l-2 border-[#ff003c]">
+            <div className="text-xs sm:text-sm md:text-base leading-relaxed text-[#d8e0ec] font-mono whitespace-pre-wrap pl-2.5 sm:pl-3 border-l-2 border-[#ff003c]">
               {typingText}
               <span className="inline-block w-2 h-4 bg-[#ff003c] animate-pulse ml-1" />
             </div>
@@ -536,19 +536,19 @@ export const ConversationalTerminal: React.FC<ConversationalTerminalProps> = ({
       </main>
 
       {/* 3. AVAILABLE RESPONSE CHOICES FOOTER */}
-      <footer className="z-30 w-full bg-[#030407]/95 border-t border-[#141824] px-5 md:px-[5vw] lg:px-[10vw] py-5 backdrop-blur-md">
-        <div className="flex flex-col gap-3">
-          <span className="text-[10px] text-[#56637a] uppercase font-bold tracking-widest font-mono">
+      <footer className="z-30 w-full bg-[#030407]/95 border-t border-[#141824] px-3 sm:px-5 md:px-[5vw] lg:px-[10vw] py-3 sm:py-5 backdrop-blur-md">
+        <div className="flex flex-col gap-2.5 sm:gap-3 max-w-full">
+          <span className="text-[9px] sm:text-[10px] text-[#56637a] uppercase font-bold tracking-widest font-mono">
             // AVAILABLE RESPONSES
           </span>
 
-          <div className="flex flex-wrap gap-2.5 max-h-48 overflow-y-auto no-scrollbar">
+          <div className="flex flex-wrap gap-2 max-h-40 sm:max-h-48 overflow-y-auto no-scrollbar">
             {!isTyping && !isDisconnecting && choices.length > 0 ? (
               choices.map((choice, idx) => (
                 <button
                   key={idx}
                   onClick={choice.action}
-                  className={`px-4 py-2.5 border text-xs font-bold uppercase tracking-wider clip-chamfer active:scale-95 transition-all cursor-pointer ${
+                  className={`px-3 py-2 sm:px-4 sm:py-2.5 border text-[11px] sm:text-xs font-bold uppercase tracking-wider clip-chamfer active:scale-95 transition-all cursor-pointer min-h-[44px] flex items-center justify-center text-left ${
                     choice.label.includes('THANK YOU')
                       ? 'bg-[#ff003c]/15 hover:bg-[#ff003c] border-[#ff003c] text-white shadow-[0_0_15px_rgba(255,0,60,0.25)]'
                       : 'bg-[#080b14] hover:bg-[#141a2b] border-[#ff003c]/40 hover:border-[#ff003c] text-[#e2e8f0] hover:text-[#00e699] shadow-[0_0_12px_rgba(255,0,60,0.1)]'
@@ -558,12 +558,12 @@ export const ConversationalTerminal: React.FC<ConversationalTerminalProps> = ({
                 </button>
               ))
             ) : isTyping ? (
-              <div className="text-xs text-[#56637a] italic flex items-center gap-2 font-mono">
+              <div className="text-xs text-[#56637a] italic flex items-center gap-2 font-mono py-1">
                 <span className="w-2 h-2 rounded-full bg-[#ff003c] animate-ping" />
                 Mentor transmission typing...
               </div>
             ) : isDisconnecting ? (
-              <div className="text-xs text-[#ff003c] font-bold flex items-center gap-2 font-mono animate-pulse">
+              <div className="text-xs text-[#ff003c] font-bold flex items-center gap-2 font-mono animate-pulse py-1">
                 <span className="w-2 h-2 rounded-full bg-[#ff003c]" />
                 SESSION DISCONNECTING...
               </div>
