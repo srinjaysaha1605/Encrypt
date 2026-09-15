@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-display: 'Chakra Petch', sans-serif;
+    --font-heading: 'Syne', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-mono);
+    background-color: #030305;
+    color: #e2e8f0;
+  }
+}
+
+/* Custom Utilities for Cryptographic Brutalism */
+.font-display {
+  font-family: 'Chakra Petch', sans-serif;
+}
+
+.font-heading {
+  font-family: 'Syne', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Chamfered & Asymmetric Clip Paths */
+.clip-chamfer {
+  clip-path: polygon(10px 0%, calc(100% - 10px) 0%, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0% calc(100% - 10px), 0% 10px);
+}
+
+.clip-chamfer-lg {
+  clip-path: polygon(16px 0%, calc(100% - 16px) 0%, 100% 16px, 100% calc(100% - 16px), calc(100% - 16px) 100%, 16px 100%, 0% calc(100% - 16px), 0% 16px);
+}
+
+.clip-notch-tr {
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+}
+
+.clip-notch-bl-tr {
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+}
+
+.clip-tag {
+  clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+}
+
+/* Red Glow Effects */
+.glow-red {
+  box-shadow: 0 0 15px rgba(255, 0, 60, 0.35), inset 0 0 15px rgba(255, 0, 60, 0.15);
+}
+
+.glow-red-sm {
+  box-shadow: 0 0 8px rgba(255, 0, 60, 0.25);
+}
+
+.glow-red-lg {
+  box-shadow: 0 0 30px rgba(255, 0, 60, 0.5), 0 0 10px rgba(255, 0, 60, 0.3);
+}
+
+.glow-green {
+  box-shadow: 0 0 12px rgba(0, 230, 153, 0.3);
+}
+
+/* Subtle Tech Grid Background */
+.bg-tech-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+.bg-red-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 0, 60, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 0, 60, 0.04) 1px, transparent 1px);
+}
+
+/* Scanlines overlay */
+.scanlines {
+  position: relative;
+}
+.scanlines::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+  background-size: 100% 4px;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+/* Glitch Animations */
+@keyframes slow-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes reverse-rotate {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes subtle-pulse {
+  0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 10px rgba(255, 0, 60, 0.4)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 20px rgba(255, 0, 60, 0.8)); }
+}
+
+@keyframes glitch-flicker {
+  0%, 100% { transform: translate(0); }
+  92% { transform: translate(0); }
+  93% { transform: translate(-2px, 1px); filter: hue-rotate(90deg); }
+  94% { transform: translate(2px, -1px); }
+  95% { transform: translate(0); }
+  98% { transform: translate(1px, -2px); opacity: 0.9; }
+}
+
+.animate-rotate-slow {
+  animation: slow-rotate 40s linear infinite;
+}
+
+.animate-rotate-reverse {
+  animation: reverse-rotate 30s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: subtle-pulse 4s ease-in-out infinite;
+}
+
+.animate-glitch {
+  animation: glitch-flicker 5s infinite;
+}
+
+/* Global Scrollbar Hiding */
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+  width: 0px;
+  height: 0px;
+  background: transparent;
+}
+
+::-webkit-scrollbar {
+  display: none;
+  width: 0px;
+  height: 0px;
+  background: transparent;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+  width: 0px;
+  height: 0px;
+  background: transparent;
+}

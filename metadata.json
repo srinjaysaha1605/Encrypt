@@ -1,0 +1,6 @@
+{
+  "name": "ENCRYPT // Ars Cryptographica",
+  "description": "An interactive cryptography learning platform inspired by Cryptographic Brutalism. Learn, visualize, experiment, and solve challenges with real WebCrypto operations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
