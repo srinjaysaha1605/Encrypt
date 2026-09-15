@@ -37,26 +37,6 @@ Step inside to decode, inspect, and master the mathematical foundations that pro
 
 ---
 
-## 📜 // CURRICULUM MODULES
-
-| ID | Module Title | Cipher Domain |
-|---|---|---|
-| `01` | **Caesar & Substitution** | Classical Ciphers & Shift Keys |
-| `02` | **Vigenère Cipher** | Polyalphabetic Frequency Masking |
-| `03` | **Enigma & Rotor Machines** | Mechanical Polyalphabetic Permutations |
-| `04` | **Modern Cryptography Foundations** | Binary, XOR Gates & Entropy |
-| `05` | **Cryptographic Hash Functions** | One-Way Compression (SHA-256) |
-| `06` | **HMAC & Message Integrity** | Hash-based Message Authentication Codes |
-| `07` | **Symmetric Key Encryption** | Block Ciphers, Modes & AES-GCM |
-| `08` | **Asymmetric Encryption & RSA** | Public/Private Keys & Prime Factorization |
-| `09` | **Diffie-Hellman Key Exchange** | Key Agreement over Untrusted Channels |
-| `10` | **Digital Signatures & Non-Repudiation** | RSA & ECDSA Integrity Proofs |
-| `11` | **Public Key Infrastructure (PKI) & TLS** | Certificate Authorities & Web Handshakes |
-| `12` | **Zero-Knowledge Proofs (ZKP)** | Proving Secrets Without Disclosure |
-| `13` | **Quantum-Resistant Cryptography** | Post-Quantum Lattice Ciphers |
-
----
-
 ## 🛠️ // TECH STACK
 
 - **Framework**: React 18 + TypeScript + Vite
