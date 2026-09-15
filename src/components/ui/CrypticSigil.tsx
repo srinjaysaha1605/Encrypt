@@ -34,10 +34,10 @@ export const CrypticSigil: React.FC<CrypticSigilProps> = ({
     : 'radial-gradient(circle, rgba(255,0,60,0.25) 0%, rgba(255,0,60,0.05) 50%, transparent 75%)';
 
   return (
-    <div className={`relative flex items-center justify-center select-none ${className}`}>
+    <div className={`relative flex items-center justify-center select-none max-w-full overflow-hidden p-2 ${className}`}>
       {/* Background Radial Glow */}
       <div 
-        className="absolute rounded-full pointer-events-none animate-pulse-glow"
+        className="absolute rounded-full pointer-events-none animate-pulse-glow max-w-full max-h-full"
         style={{
           width: size * 0.9,
           height: size * 0.9,
@@ -52,7 +52,8 @@ export const CrypticSigil: React.FC<CrypticSigilProps> = ({
         viewBox="0 0 400 400"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="relative z-10"
+        className="relative z-10 max-w-full h-auto"
+        style={{ maxWidth: `${size}px` }}
       >
         <defs>
           <filter id="glowFilter" x="-20%" y="-20%" width="140%" height="140%">
